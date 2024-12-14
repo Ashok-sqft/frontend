@@ -14,6 +14,17 @@ import {
 } from "@/ui/select";
 import { Badge } from "@/ui/badge";
 import { useStore } from "@/Store/store";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/ui/card";
+import { Button } from "@/ui/Button";
+import { Label } from "@/ui/label";
+import { Input } from "@/ui/input";
 interface NavigationItem {
   name: string;
   href: string;
@@ -36,18 +47,21 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   const {} = useStore();
   const location = useStore((state) => state.location);
-  
+
   return (
     <>
-      <div className=" w-full sm:px-5 py-3 h-18 shadow-md">
+      <div className=" w-full px-3 sm:px-5 py-3 h-18 shadow-md fixed z-100">
         <div className=" flex   justify-between">
           <div className="flex  gap-1  sm:gap-3 lg:w-[40%] ">
-            <Image
-              src={"/assets/logo/8SQFT.svg"}
-              alt="SQFT"
-              width={50}
-              height={50}
-            />
+            <Link href="/">
+              {" "}
+              <Image
+                src={"/assets/logo/8SQFT.svg"}
+                alt="SQFT"
+                width={40}
+                height={40}
+              />
+            </Link>
 
             <div className="w-full max-w-fit self-center p-3">
               <Select>
@@ -56,9 +70,11 @@ const Navbar = () => {
               </Select>
             </div>
 
-           <Link href='/Rental-Agreement' className='self-center'>
-           <p className="text-sm font-normal text-gray hover:text-black border border-gray-300 rounded-md  p-2  hover:border-primary transition-all duration-300 w-fit ">Rental Agreement</p></Link>
-           
+            <Link href="/Rental-Agreement" className="self-center">
+              <p className="text-sm font-normal text-gray hover:text-black border border-gray-300 rounded-md  p-2  hover:border-primary transition-all duration-300 w-fit ">
+                Rental Agreement
+              </p>
+            </Link>
           </div>
 
           {/* LINKS */}
@@ -81,14 +97,24 @@ const Navbar = () => {
                 </Link>
               ))}
             </div>
-            <div
-              className="bg-green text-white   text-sm font-thin rounded-md self-center p-1"
-            >
+            <div className="bg-green text-white   text-sm font-thin rounded-md self-center p-1">
               Post property
             </div>
             <div className="hidden lg:flex  m-auto border border-gray-300 rounded-md px-2 py-2  ">
               <FaUser />
             </div>
+            {/* <div className='relative'>
+              <Card className="hidden sm:max-w-[350px]  sm:block rounded-md shadow-md border-gray-light-300 absolute top-16 right-0 bg-white ">
+                <CardHeader>
+                  <CardTitle>LOGIN/REGISTER</CardTitle>
+                </CardHeader>
+                <CardContent className='flex gap-5'>
+                  <Link href='/Signin'> <Button variant="outline">LOGIN</Button></Link>
+                  <Link href='/Signup'><Button className='text-white'>REGISTER</Button></Link>
+                
+                </CardContent>
+              </Card>
+            </div> */}
           </div>
 
           <div className="block lg:hidden self-center ">
@@ -98,8 +124,6 @@ const Navbar = () => {
               onClick={() => setIsOpen(true)}
             />
           </div>
-
-          
         </div>
       </div>
     </>

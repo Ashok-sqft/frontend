@@ -36,7 +36,7 @@ const Navbarin: React.FC = () => {
     }, [])
     return (
         <>
-            <Navbar />
+           <div className='fixed'> <Navbar /></div>
         </>
     );
 }

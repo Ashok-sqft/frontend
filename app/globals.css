@@ -14,7 +14,11 @@ html {
   scroll-behavior: smooth !important;
 }
 
-
+.container{
+  box-sizing: border-box !important;
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+}
 
 @layer base {
   :root {
